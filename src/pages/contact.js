@@ -3,16 +3,16 @@ import Layout from '../components/layout'
 import {useStaticQuery, graphql} from 'gatsby';
 
 const data = graphql`
-query Contact {
-  allContentfulContact(filter: {node_locale: {eq: "en-US"}}) {
-    nodes {
-      subtitle
-      title
-      iframeSrc
+  query Contact {
+    allContentfulContact(filter: {node_locale: {eq: "en-US"}}) {
+      nodes {
+        subtitle
+        title
+        iframeSrc
+      }
     }
   }
-}
-`
+  `
 
   const Contact = () =>  {    
     const info = useStaticQuery(data).allContentfulContact.nodes[0]
