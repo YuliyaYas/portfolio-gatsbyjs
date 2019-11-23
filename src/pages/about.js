@@ -1,13 +1,38 @@
-import React, { Component } from "react"
+import React from "react"
 import Layout from '../components/layout'
-import styles from '../sass/home.module.scss'
+import {useStaticQuery, graphql} from 'gatsby';
+var parse = require('html-react-parser');
 
-export default class blog extends Component {
-
-    render() { 
-        return <Layout>
-            <div className={styles.test}>BLUURGGG</div>
-            <p>Pickle Rick</p>
-            </Layout>
+const data = graphql`
+query About {
+    allContentfulAbout(filter: {node_locale: {eq: "en-US"}}) {
+      nodes {
+        profileImage {
+          fluid {
+            src
+          }
+          title
+        }
+        paragraphs {
+          paragraphs
+        }
+        cta
+        ctaText
+      }
     }
+  }`
+
+  const About = () =>  {    
+    const info = useStaticQuery(data).allContentfulAbout.nodes[0]
+        return <Layout>
+          <div id="about">
+             <img id="profile-pic" src={info.profileImage.fluid.src} alt={info.profileImage.title}/>
+            {parse(info.paragraphs.paragraphs)}
+          </div>
+          <br/>
+          <a href={info.cta}><h4>{info.ctaText}</h4></a>
+        </Layout>
+    
 }
+
+export default About

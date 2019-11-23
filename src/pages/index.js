@@ -9,7 +9,7 @@ const data = graphql`
           nodes {
             img {
               fluid {
-                srcSet
+                src
               }
             }
             title
@@ -26,7 +26,7 @@ export default () => {
   const info = useStaticQuery(data).allContentfulHome.nodes[0]
   const desc = info.description.description
     return(<Layout>   
-        <img id={styles.homeImg} src={require("../images/Snaility.jpg")} alt="home page"/>
+        <img id={styles.homeImg} src={info.img.fluid.src} alt="home page"/>
         <div className="title">
           <p>{info.title}</p>
           <i>{info.size}</i>
