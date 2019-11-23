@@ -1,0 +1,12 @@
+#homeImg{
+    width: 100%;
+}
+
+@media (min-width: 480px) {
+    #home-img{
+      width: 70%;
+      padding-top: 8px;
+      display: block;
+      margin: 0 auto;
+    }
+  }
