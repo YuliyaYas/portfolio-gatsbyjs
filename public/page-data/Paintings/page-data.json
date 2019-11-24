@@ -1,1 +1,1 @@
-{"componentChunkName":"component---src-templates-artpage-template-js","path":"/paintings","result":{"errors":[{"message":"Variable \"$slug\" of required type \"String!\" was not provided.","locations":[{"line":2,"column":3}]}],"pageContext":{"isCreatedByStatefulCreatePages":false,"title":"paintings"}}}
+{"componentChunkName":"component---src-templates-artpage-template-js","path":"/paintings","result":{"pageContext":{"isCreatedByStatefulCreatePages":false,"title":"paintings"}}}

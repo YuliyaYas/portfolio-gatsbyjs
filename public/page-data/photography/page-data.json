@@ -1,1 +1,1 @@
-{"componentChunkName":"component---src-templates-artpage-template-js","path":"/photography","result":{"errors":[{"message":"Variable \"$slug\" of required type \"String!\" was not provided.","locations":[{"line":2,"column":3}]}],"pageContext":{"isCreatedByStatefulCreatePages":false,"title":"photography"}}}
+{"componentChunkName":"component---src-templates-artpage-template-js","path":"/photography","result":{"pageContext":{"isCreatedByStatefulCreatePages":false,"title":"photography"}}}

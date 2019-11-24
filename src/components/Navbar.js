@@ -6,9 +6,10 @@ const data = graphql`
     file(relativePath: {eq: "logo_yy.png"}) {
       relativePath
     }
-    allContentfulArtPage {
+    allContentfulArtPage(sort: {fields: order}) {
       nodes {
         title
+        order
       }
     }
   }  
@@ -26,7 +27,8 @@ const Navbar = () => {
               {menu}
                 <li><Link to='/'>Home</Link></li>
                 <li><Link to='/about'>About</Link></li>
-                <li><Link to='/contact'>Contact</Link></li>   
+                <li><Link to='/contact'>Contact</Link></li>
+              
             </ul>
         </nav>
     )
