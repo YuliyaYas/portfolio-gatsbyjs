@@ -7,27 +7,26 @@ exports.onPostBuild = ({reporter}) => {
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
   const ArtPageTemplate = path.resolve(`src/templates/artpage-template.js`)
-  const result = await graphql(`
+  
+  const {data} = await graphql(`
     query {
-        allContentfulArtPage(filter: {node_locale: {eq: "en-US"}, title: {}}) {
-          edges {
-            node {
-              columnOne {
-                description
-                title
-              }
-              title
-            }
+      allContentfulArtPage {
+        edges {
+          node {
+            title
           }
         }
-      }      
+      }
+    }             
   `)
-  result.data.allContentfulArtPage.edges.forEach(edge => {
+
+  data.allContentfulArtPage.edges.forEach(edge => {
+    const slug = edge.node.title
     createPage({
-      path: `${edge.node.title}`,
+      path: slug,
       component: ArtPageTemplate,
       context: {
-        title: edge.node.title
+        slug: slug
       },
     })
   })
